@@ -38,10 +38,12 @@ provider:
         - dynamodb:DeleteItem
       Resource: "arn:aws:dynamodb:us-east-2:913072501297:table/notes"
 
-
+# Create our resources with separate CloudFormation templates
+resources:
+  # API Gateway Errors
+  - ${file(resources/api-gateway-errors.yml)}
 
 functions:
-
 
   hello:
     handler: handler.hello
